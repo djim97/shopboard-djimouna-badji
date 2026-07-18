@@ -1,0 +1,18 @@
+<section class="produit-list">
+  <h2>Nos produits</h2>
+
+  @if (produits().length === 0) {
+    <p>Aucun produit disponible.</p>
+  } @else {
+    <ul>
+      @for (produit of produits(); track produit.id) {
+        <li>
+          <strong>{{ produit.nom }}</strong> —
+          {{ produit.prix }} XOF —
+          Stock : {{ produit.stock }} —
+          {{ produit.categorie }}
+        </li>
+      }
+    </ul>
+  }
+</section>
