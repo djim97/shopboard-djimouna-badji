@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <!-- 1. Interpolation -->
+  <p>Lien actif : {{ lienActif() }}</p>
+
+  <!-- 2. Property binding + 3. Event binding -->
+  <a
+    [class.active]="lienActif() === 'Accueil'"
+    (click)="changerLien('Accueil')">
+    Accueil
+  </a>
+  <a
+    [class.active]="lienActif() === 'Produits'"
+    (click)="changerLien('Produits')">
+    Produits
+  </a>
+
+  <!-- 4. Two-way via signal: [value] writes, (input) reads back -->
+  <input
+    type="text"
+    placeholder="Rechercher..."
+    [value]="recherche()"
+    (input)="onRecherche($event)" />
+
+  <p>Recherche : {{ recherche() }}</p>
+</nav>
