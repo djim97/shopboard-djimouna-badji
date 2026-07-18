@@ -8,9 +8,9 @@
       @for (produit of produits(); track produit.id) {
         <li>
           <strong>{{ produit.nom }}</strong> —
-          {{ produit.prix }} XOF —
-          Stock : {{ produit.stock }} —
-          {{ produit.categorie }}
+          {{ produit.prixFormate }} —
+          <span class="badge">{{ produit.badgeStatut }}</span> —
+          Ajouté le {{ produit.dateAjout }}
         </li>
       }
     </ul>
