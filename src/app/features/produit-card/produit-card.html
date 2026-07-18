@@ -1,5 +1,5 @@
 <div class="produit-card">
-  <h3>{{ produit().nom }}</h3>
+  <h3><a [routerLink]="['/produits', produit().id]">{{ produit().nom }}</a></h3>
   <p class="prix">{{ produit().prixFormate }}</p>
   <p class="badge">{{ produit().badgeStatut }}</p>
   <p class="date">Ajouté le {{ produit().dateAjout }}</p>

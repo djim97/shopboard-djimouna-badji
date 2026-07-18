@@ -1,0 +1,12 @@
+@if (produit(); as p) {
+  <section class="produit-detail">
+    <h2>{{ p.nom }}</h2>
+    <p>Prix : {{ p.prixFormate }}</p>
+    <p>Statut : {{ p.badgeStatut }}</p>
+    <p>Ajouté le {{ p.dateAjout }}</p>
+    <button (click)="retour()">← Retour</button>
+  </section>
+} @else {
+  <p>Produit introuvable.</p>
+  <button (click)="retour()">← Retour</button>
+}
