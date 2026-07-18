@@ -1,18 +1,19 @@
 <section class="produit-list">
   <h2>Nos produits</h2>
 
+  <div class="panier-resume">
+    Panier : {{ nombreArticles() }} article(s) — Total : {{ totalFormate() }}
+  </div>
+
   @if (produits().length === 0) {
     <p>Aucun produit disponible.</p>
   } @else {
-    <ul>
+    <div class="grille">
       @for (produit of produits(); track produit.id) {
-        <li>
-          <strong>{{ produit.nom }}</strong> —
-          {{ produit.prixFormate }} —
-          <span class="badge">{{ produit.badgeStatut }}</span> —
-          Ajouté le {{ produit.dateAjout }}
-        </li>
+        <app-produit-card
+          [produit]="produit"
+          (ajouterAuPanier)="onAjouterAuPanier($event)" />
       }
-    </ul>
+    </div>
   }
 </section>

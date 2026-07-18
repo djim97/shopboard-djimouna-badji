@@ -24,6 +24,7 @@ export function toProduitVm(dto: ProduitDto): ProduitVm {
   return {
     id: dto.id,
     nom: dto.nom,
+    prix: dto.prix,
     prixFormate,
     estDisponible: stock > 0,
     dateAjout,

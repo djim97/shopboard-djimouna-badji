@@ -1,0 +1,9 @@
+<div class="produit-card">
+  <h3>{{ produit().nom }}</h3>
+  <p class="prix">{{ produit().prixFormate }}</p>
+  <p class="badge">{{ produit().badgeStatut }}</p>
+  <p class="date">Ajouté le {{ produit().dateAjout }}</p>
+  <button (click)="onAjouter()" [disabled]="!produit().estDisponible">
+    Ajouter au panier
+  </button>
+</div>
