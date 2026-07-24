@@ -1,7 +1,7 @@
 <div class="produit-card">
   <h3><a [routerLink]="['/produits', produit().id]">{{ produit().nom }}</a></h3>
   <p class="prix">{{ produit().prixFormate }}</p>
-  <p class="badge">{{ produit().badgeStatut }}</p>
+  <p class="badge" [class.badge-vert]="produit().badgeStatut === 'En stock'" [class.badge-orange]="produit().badgeStatut === 'Stock faible'" [class.badge-rouge]="produit().badgeStatut === 'Rupture'">{{ produit().badgeStatut }}</p>
   <p class="date">Ajouté le {{ produit().dateAjout }}</p>
   <button (click)="onAjouter()" [disabled]="!produit().estDisponible">
     Ajouter au panier
