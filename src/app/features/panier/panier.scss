@@ -1,0 +1,95 @@
+.panier {
+  max-width: 600px;
+
+  h2 {
+    font-size: 1.75rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .vide {
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .lignes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ligne {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nom {
+    font-weight: 600;
+  }
+
+  .prix-unit {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  .retirer {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .retirer:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #0f172a;
+  }
+
+  .resume {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ligne-resume {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    color: var(--text-dim);
+  }
+
+  .ligne-resume.total {
+    border-top: 1px solid var(--border);
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .ligne-resume.total span:last-child {
+    color: var(--accent);
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .vider:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #0f172a;
+  }
+}

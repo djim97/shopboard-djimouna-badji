@@ -1,1 +1,44 @@
-<p>panier works!</p>
+<section class="panier">
+  <h2>Mon panier</h2>
+
+  @if (articles().length === 0) {
+    <p class="vide">Votre panier est vide.</p>
+    <button (click)="continuer()">Continuer les achats</button>
+  } @else {
+    <div class="lignes">
+      @for (article of articles(); track article.produit.id) {
+        <div class="ligne">
+          <div class="info">
+            <span class="nom">{{ article.produit.nom }}</span>
+            <span class="prix-unit">{{ article.produit.prixFormate }} × {{ article.quantite }}</span>
+          </div>
+          <button class="retirer" (click)="retirer(article.produit.id)">Retirer</button>
+        </div>
+      }
+    </div>
+
+    <div class="resume">
+      <div class="ligne-resume">
+        <span>Articles</span>
+        <span>{{ nombreArticles() }}</span>
+      </div>
+      <div class="ligne-resume">
+        <span>Sous-total</span>
+        <span>{{ sousTotal() }} XOF</span>
+      </div>
+      <div class="ligne-resume">
+        <span>Livraison</span>
+        <span>{{ livraison() === 0 ? 'Gratuite' : livraison() + ' XOF' }}</span>
+      </div>
+      <div class="ligne-resume total">
+        <span>Total</span>
+        <span>{{ totalFormate() }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button (click)="continuer()">Continuer les achats</button>
+      <button class="vider" (click)="vider()">Vider le panier</button>
+    </div>
+  }
+</section>
