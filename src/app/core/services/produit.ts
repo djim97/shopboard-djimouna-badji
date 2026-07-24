@@ -19,4 +19,16 @@ export class ProduitService {
   getById(id: string): Observable<ProduitDto> {
     return this.http.get<ProduitDto>(`${this.apiUrl}/${id}`);
   }
+
+  creer(data: Omit<ProduitDto, 'id' | 'created_at'>): Observable<ProduitDto> {
+    return this.http.post<ProduitDto>(this.apiUrl, data);
+  }
+
+  mettreAJour(id: string, data: Partial<ProduitDto>): Observable<ProduitDto> {
+    return this.http.patch<ProduitDto>(`${this.apiUrl}/${id}`, data);
+  }
+
+  supprimer(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

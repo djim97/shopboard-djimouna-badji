@@ -1,0 +1,52 @@
+<section class="produit-form">
+  <h2>Créer un produit</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="champ">
+      <label>Nom</label>
+      <input type="text" formControlName="nom" />
+      @if (form.controls.nom.touched && form.controls.nom.invalid) {
+        @if (form.controls.nom.errors?.['required']) {
+          <small class="erreur">Le nom est requis.</small>
+        }
+        @if (form.controls.nom.errors?.['minlength']) {
+          <small class="erreur">Minimum 3 caractères.</small>
+        }
+        @if (form.controls.nom.errors?.['maxlength']) {
+          <small class="erreur">Maximum 50 caractères.</small>
+        }
+      }
+    </div>
+
+    <div class="champ">
+      <label>Prix</label>
+      <input type="number" formControlName="prix" />
+      @if (form.controls.prix.touched && form.controls.prix.invalid) {
+        <small class="erreur">Le prix doit être un nombre positif.</small>
+      }
+    </div>
+
+    <div class="champ">
+      <label>Stock</label>
+      <input type="number" formControlName="stock" />
+      @if (form.controls.stock.touched && form.controls.stock.invalid) {
+        <small class="erreur">Le stock ne peut pas être négatif.</small>
+      }
+    </div>
+
+    <div class="champ">
+      <label>Catégorie</label>
+      <select formControlName="categorie">
+        <option value="">-- Choisir --</option>
+        @for (cat of categories; track cat) {
+          <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+      @if (form.controls.categorie.touched && form.controls.categorie.invalid) {
+        <small class="erreur">La catégorie est requise.</small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Créer</button>
+  </form>
+</section>
